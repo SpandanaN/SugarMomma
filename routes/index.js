@@ -55,7 +55,13 @@ router.get('/usersList', function(req, res, next) {
   res.render('usersList');
 });
 
-router.post('/signup',function(req,res) {
+router.post('/signup',function(req,res){
+  db.collection('users').findOne({email:req.body.email},function(err,doc){
+    console.log(doc);
+    console.log("finish");
+  });
+});
+/*router.post('/signup',function(req,res) {
   kickbox.verify(req.body.email, function (err, response) {
 
     if (response.body.result === 'deliverable') {
@@ -104,7 +110,7 @@ router.post('/signup',function(req,res) {
       res.send({emailAlreadyExists: 'false', emailValid: 'false'});
     }
   });
-});
+});*/
 
 router.post('/cred',function(req,res,next) {
   var email = req.body.username;
