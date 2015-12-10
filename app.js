@@ -77,10 +77,12 @@ app.post('/posts/:id',function(req,res){
   var email = req.cookies.logged_in_user;
 
   console.log(req.body);
+  console.log("hello");
   db.collection('users').findOne({email:email},function(err,doc){
   //db.users.findOne({email:email},function(err,doc){
 
     req.body.comment_author_dp=doc.dp_src;
+    console.log(req.body);
     db.collection('posts').update(
     //db.posts.update(
         {_id:mongojs.ObjectId(id)},
