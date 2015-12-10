@@ -95,6 +95,10 @@ app.post('/posts/:id',function(req,res){
 });
 
 
+app.listen(app.get('port'), function() {
+  console.log('Node app is running on port', app.get('port'));
+});
+
 
 
 // catch 404 and forward to error handler
