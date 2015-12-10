@@ -74,7 +74,7 @@ app.post('/posts/:id',function(req,res){
 
   var id = req.params.id;
   console.log("let's post");
-  var email = req.cookies.logged_in_user;
+  var email = req.cookies.user;
 
   console.log(req.body);
   console.log("hello");
