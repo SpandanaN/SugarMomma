@@ -68,7 +68,7 @@ app.controller('formController',['$scope','$http','$window', function($scope,$ht
             $scope.user.location = register.location ;
 //                        $scope.user.city = register.city;
 //                        $scope.user.country = register.country;
-            console.log($scope.user);
+
             $http.post('/signup',$scope.user).success(function(res){
                     console.log(res);
                     $scope.response={};

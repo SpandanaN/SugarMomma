@@ -58,7 +58,7 @@ router.get('/usersList', function(req, res, next) {
 
 router.post('/signup',function(req,res) {
   kickbox.verify(req.body.email, function (err, response) {
-
+    console.log(response);
     if (response.body.result === 'deliverable') {
       // find each person with a email matching email submitted, selecting the email field
       db.collection('users').findOne({email: req.body.email}, {email: 1}, function (err, response) {
