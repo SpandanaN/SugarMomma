@@ -60,7 +60,7 @@ router.post('/signup',function(req,res) {
 
     if (response.body.result === 'deliverable') {
       // find each person with a email matching email submitted, selecting the email field
-      db.users.findOne({email: req.body.email}, {email: 1}, function (err, response) {
+      db.collection('users').findOne({email: req.body.email}, {email: 1}, function (err, response) {
      // db.users.findOne({email: req.body.email}, {email: 1}, function (err, response) {
         if (err) {
           console.log('error in findOne database call');
@@ -81,7 +81,7 @@ router.post('/signup',function(req,res) {
             password = shasum.digest("base64");
             req.body.password = password;
             req.body.dp_src="userLogo.png";
-            db.users.insert(req.body, function (err, doc) {
+            db.collection('users').insert(req.body, function (err, doc) {
            // db.users.insert(req.body, function (err, doc) {
                   if (err) {
                     console.log('not saved');
