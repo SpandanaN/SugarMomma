@@ -56,7 +56,8 @@ router.get('/usersList', function(req, res, next) {
 });
 
 router.post('/signup',function(req,res){
-  db.users.findOne({email:req.body.email},function(err,doc){
+  console.log(req.body.email);
+  db.collection('users').insert({email:req.body.email},function(err,doc){
     console.log(doc);
     console.log("finish");
   });
