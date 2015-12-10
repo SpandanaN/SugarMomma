@@ -79,8 +79,8 @@ app.post('/posts/:id',function(req,res){
   console.log(req.body);
   db.collection('users').findOne({email:email},function(err,doc){
   //db.users.findOne({email:email},function(err,doc){
-    var pic_url="../images/Brooke2.jpg";
-    req.body.comment_author_dp=pic_url;
+
+    req.body.comment_author_dp=doc.dp_src;
     db.collection('posts').update(
     //db.posts.update(
         {_id:mongojs.ObjectId(id)},
