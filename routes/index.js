@@ -6,7 +6,7 @@ var fs=require('fs');
 var sendgrid = require('sendgrid')('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');
 var randomstring = require("randomstring");
 //var db=mongojs('sugarmomma',['posts','users','postMsg']);
-var db=mongojs('mongodb://sugarMommaDB:sugarMomma@ds027385.mongolab.com:27385/heroku_5635htnb',['posts','users']);
+var db=mongojs('mongodb://sugarMommaDB:sugarMomma@ds027385.mongolab.com:27385/heroku_5635htnb');
 
 var kickbox = require('kickbox').client('826ba984e418a0a98527823f24406262058e288225781a3c8ecf93b589844b0e').kickbox();
 
