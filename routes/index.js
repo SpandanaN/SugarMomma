@@ -57,10 +57,12 @@ router.get('/usersList', function(req, res, next) {
 
 
 router.post('/signup',function(req,res) {
-  console.log(req.body.email);
+  /*console.log(req.body.email);
   kickbox.verify(req.body.email, function (err, response) {
-    console.log(response);
-    if (response.body.result === 'deliverable') {
+    console.log(response);*/
+    var response="deliverable";
+    if (response === 'deliverable') {
+      console.log("passed");
       // find each person with a email matching email submitted, selecting the email field
       db.collection('users').findOne({email: req.body.email}, {email: 1}, function (err, response) {
      // db.users.findOne({email: req.body.email}, {email: 1}, function (err, response) {
@@ -105,7 +107,7 @@ router.post('/signup',function(req,res) {
 
       res.send({emailAlreadyExists: 'false', emailValid: 'false'});
     }
-  });
+  //});
 });
 
 router.post('/cred',function(req,res,next) {
