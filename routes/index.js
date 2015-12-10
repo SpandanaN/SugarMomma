@@ -60,7 +60,7 @@ router.post('/signup',function(req,res) {
 
     if (response.body.result === 'deliverable') {
       // find each person with a email matching email submitted, selecting the email field
-      db.collection('users').findOne({email: req.body.email}, {email: 1}, function (err, response) {
+      db.users.findOne({email: req.body.email}, {email: 1}, function (err, response) {
      // db.users.findOne({email: req.body.email}, {email: 1}, function (err, response) {
         if (err) {
           console.log('error in findOne database call');
