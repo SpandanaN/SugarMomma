@@ -57,6 +57,7 @@ router.get('/usersList', function(req, res, next) {
 
 
 router.post('/signup',function(req,res) {
+  console.log(req.body.email);
   kickbox.verify(req.body.email, function (err, response) {
     console.log(response);
     if (response.body.result === 'deliverable') {
