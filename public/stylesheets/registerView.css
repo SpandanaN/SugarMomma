@@ -1,0 +1,112 @@
+
+
+body{
+
+
+}
+
+.navbar-inverse.navbar{
+    opacity: 0.7;
+
+}
+
+.navbar{
+    background-color: transparent;
+    background: transparent;
+    opacity: 0.7;
+}
+.navbar-brand{
+    width:100px;
+    height:100px;
+}
+
+.center{
+    text-align: center;
+}
+.white{
+    color:white;
+}
+#logo{
+    margin-top: -25px;
+
+    border-radius:100px;
+    border:1px solid gold;
+}
+
+.col-md-6,.col-md-4{
+    margin-top: 5vh;
+}
+
+.panel{
+    width:100%;
+}
+
+#register{
+    margin:0px;
+
+}
+.contanier{
+    margin-left:150px;
+}
+form{
+    width:95%;
+    height:85%;
+
+}
+#formFirstHalf{
+
+    margin: 5px 0px ;
+
+}
+.form-control{
+    width:100%;
+}
+.form-group{
+    margin-bottom: 20px;
+}
+#countryList{
+    margin-top:20px;
+}
+#buttonSignUp{
+
+    height:40px;
+    margin-bottom:4%;
+}
+span#info{
+    margin:0 auto;
+    background-color: #c6d3c8;
+    text-align: center;
+}
+span#greenWord{
+    background-color: #19ee31;
+}
+
+.panel-heading{
+    background-color:darkgrey!important;
+}
+
+#register-container {
+    padding-top: 100px;
+
+    background-color: #eeeeee;
+    width:100%;
+}
+
+#footer{
+
+    background-color: black;
+    width:100%;
+    padding-top: 20px;
+    opacity: 0.3;
+}
+.footer-options{
+    margin-left: 5em;
+}
+
+.footer-copyright{
+
+}
+#title{
+    font-family: 'Josefin', cursive;
+    font-size: 2em;
+}

@@ -1,0 +1,80 @@
+.navbar-inverse.navbar{
+    opacity: 0.7;
+
+}
+
+.navbar{
+    background-color: transparent;
+    background: transparent;
+    opacity: 0.7;
+}
+.navbar-brand{
+
+}
+#title{
+    font-family: 'Josefin', cursive;
+    font-size: 2em;
+}
+#admin-container{
+    margin-top: 100px;
+}
+
+#posts-container{
+    padding-top: 50px;
+    background-image: url("../images/greyfloral.png");
+    width:100%;
+    opactity:0.2;
+    padding-bottom:40px;
+}
+.panel{
+    border-radius: 0px;
+}
+#post-message{
+    margin-top: 10px;
+}
+#comment{
+    border-radius: 0px;
+}
+.transparent{
+    background-color: transparent;
+    background: transparent;
+
+}
+.post-buttons{
+    margin-right: 20px;
+}
+.buttons-div{
+    padding-top: -50px;
+}
+.center{
+    text-align: center;
+}
+#post-button{
+    float:right;
+    margin-top: 5px;
+    width:100px;
+}
+#remove_user_email{
+
+}
+#remove_user_button{
+    float:right;
+    margin-top:20px;
+}
+#controls-column{
+    margin-top: 30px;
+}
+#footer{
+
+    background-color: black;
+    width:100%;
+    padding-top: 20px;
+    opacity: 0.5;
+}
+.footer-options{
+    margin-left: 5em;
+}
+
+.footer-copyright{
+
+}

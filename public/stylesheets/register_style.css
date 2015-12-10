@@ -1,0 +1,62 @@
+
+#registerDiv{
+    text-align: center ;
+    margin-top: 4%;
+}
+#register{
+    margin:0px;
+
+}
+.contanier{
+    margin-left:150px;
+}
+#formFirstHalf{
+    margin: 5px 0px ;
+
+}
+.form-control{
+
+    width:75%;
+    padding:0;
+    margin:0;
+    height:20px;
+}
+.form-group{
+    margin-bottom: 5px;
+    margin-left: 18%;
+}
+#countryList{
+    margin-top:20px;
+}
+#buttonSignUp{
+
+    height:40px;
+    margin-bottom:4%;
+}
+span#info{
+    margin-left:18%;
+    background-color:lightgrey;
+}
+span#greenWord{
+    background-color: lightgreen;
+}
+/*#inputUsername.ng-valid.ng-dirty{*/
+/*border: 3px solid green;*/
+/*}*/
+/*#inputUsername.ng-invalid.ng-dirty{*/
+/*border: 3px solid red;*/
+/*}*/
+
+/*#inputPassword.ng-valid.ng-dirty{*/
+/*border: 3px solid green;*/
+/*}*/
+/*#inputPassword.ng-invalid.ng-dirty{*/
+/*border: 3px solid red;*/
+/*}*/
+
+hr{
+    border-width:3px;
+    border-color: lightgray;
+    margin-left:14%;
+    margin-right:16%;
+}

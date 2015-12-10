@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel='stylesheet' href='../stylesheets/registerView.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+
+    <!-- Optional theme -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+
+
+
+</head>
+<body ng-app="regForm" ng-controller="formController as form">
+<div class="navbar navbar-inverse navbar-fixed-top">
+
+    <div class="container">
+
+        <div class="navbar-header">
+            <h2 class="navbar-brand white" id="title">Sugar Mommas</h2>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="container" id="register-container">
+
+    <div class="row">
+
+        <div class="col-md-4  ">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h4>Login</h4></div>
+                <div class="panel-body">
+
+                    <form  id="login" name="loginForm" novalidate >
+
+                        <!--Email-->
+                        <div class="form-group" >
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span></span>
+                                <!--<label for="inputSuccess1">Email</label>-->
+                                <input type="text"
+                                       class="form-control"
+                                       id="inputSuccess1"
+                                       aria-describedby="helpBlock2"
+                                       ng-model="cred.username"
+                                       name="loginEmail"
+                                       aria-describedby="basic-addon1"
+                                       placeholder="Email"
+                                       data-toggle="tooltip"
+                                       title="Enter Registered Email">
+                                <!--<span id="helpBlock2" class="help-block">A block of help text that breaks-->
+                                <!--onto a new line and may extend beyond one line.-->
+                                <!--</span>-->
+                            </div>
+
+                        </div>
+
+                        <!--Password-->
+                        <div class="form-group">
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+
+                                <input type="password"
+                                       class="form-control"
+                                       id="inputSuccess2"
+                                       ng-model="cred.password"
+                                       ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/"
+                                       name="loginPassword"
+                                       aria-describedby="basic-addon1"
+                                       placeholder="Password"
+                                        />
+                            </div>
+
+                        </div>
+
+                        <!--<div class="checkbox">-->
+                        <!--<label>-->
+                        <!--<input type="checkbox"> Remember Me-->
+                        <!--</label>-->
+
+                        <!--</div>-->
+
+                        <!--<p class="links"><button type="submit" class="btn btn-default">Submit</button></p>-->
+
+                        <!--Login Button-->
+                        <div class="form-group">
+                            <p ng-show="match === 1 " class="bg-success">Login Success</p>
+                            <p ng-show="match === 0" class="bg-danger">Invalid Username/Password</p>
+
+                            <p id="loginButton">
+                                <button type="button" class="btn btn-primary" id="loginButton" ng-click="credCheck()">Login</button>
+                            </p>
+                        </div >
+
+                        <!--Forgot Password Link-->
+                        <a href="/forgotPassword">ForgotPassword?   </a>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-6 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading "><h4>New to Sugar Mommas? SignUp here !</h4></div>
+                <div class="panel-body">
+
+
+                    <!--Registeration form -->
+                    <form id="formFirstHalf" name="firstHalf" novalidate>
+
+                        <!--Username-->
+                        <div class="form-group ">
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+
+                                <input required
+                                       ng-minlength="{{minValue}}"
+                                       ng-model="user.name"
+                                       name="username"
+                                       type="text"
+                                       class="form-control"
+                                       id="inputUsername"
+                                       placeholder="Username"
+                                       aria-describedby="basic-addon1"
+                                       data-toggle="tooltip"
+                                       title="Enter minimum4 characters, Eg.John "
+                                        />
+                            </div>
+
+                        </div>
+
+
+
+                        <!--Email-->
+                        <div class="form-group" ng-class="{'has-success':!(firstHalf.email.$error.email == true) && (firstHalf.email.$viewValue.length > 0) }">
+                            <!--<label for="exampleInputPassword2">Email</label>-->
+
+                            <div class="input-group">
+                                         <span class="input-group-addon" id="basic-addon1">
+                                            <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                                        </span>
+                                <input ng-model="user.email"
+                                       type="email"
+                                       class="form-control"
+                                       id="regEmail"
+                                       required
+                                       placeholder="Email"
+                                       name="email"
+                                       data-toggle="tooltip"
+                                       title="Enter a valid email " />
+                            </div>
+
+                            <span ng-show="emailAccepted === 'true'">Registration Accepted</span>
+                            <span ng-show="emailAccepted === 'false'">Registration Denied</span>
+
+
+
+                            <p class="bg-danger"
+                               ng-show="(response.emailValid === 'false')" >
+                                Invalid Email
+                            </p>
+                            <p class="bg-warning"
+                               ng-show="(response.emailAlreadyExists === 'true')&&(response.emailValid === 'true')">
+                                Email Already Exists ,use another
+                            </p>
+                        </div>
+
+
+
+                        <!--Password-->
+                        <div class="form-group " >
+
+                            <div class="input-group">
+                                <span class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                                <input  required
+                                        name="password"
+                                        ng-model="user.password"
+                                        type="password"
+                                        class="form-control"
+                                        id="inputPassword"
+                                        placeholder="Password"
+                                        ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/"
+                                        aria-describedby="basic-addon1"
+                                        data-toggle="tooltip"
+                                        title="1uppercase,1lowercase character and 1 number,Eg. As3 ">
+
+
+                            </div>
+
+                        </div>
+
+                        <!--ConfirmPassword-->
+                        <!--<div class="form-group" ng-class="{'has-success':((user.password || 1) == (user.confirmPassword || 2))}">-->
+                        <!--<label for="inputConfirmPassword">Confirm Password</label>-->
+
+                        <!--<span ng-show="((user.password || 1) == (user.confirmPassword || 2))">Passwords match</span>-->
+
+                        <!--<input required-->
+                        <!--name="confirmpassword"-->
+                        <!--ng-model="user.confirmPassword"-->
+                        <!--type="password"-->
+                        <!--class="form-control"-->
+                        <!--id="inputConfirmPassword"-->
+                        <!--placeholder="Confirm Password"-->
+                        <!--ng-pattern="/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/"-->
+                        <!-->
+                        <!--</div>-->
+
+                        <!--Email-->
+
+                        <!--City and Country -->
+                        <div class="form-group" id="location">
+
+                            <div class="input-group">
+                                        <span class="input-group-addon" id="basic-addon1">
+                                            <span class="glyphicon glyphicon-map-marker" aria-hidden="true"></span>
+                                        </span>
+                                <input name="country"  class="form-control"  placeholder="Zip/City" required id="cityCountrySelect" ng-model="location" aria-describedby="basic-addon1"
+                                       data-toggle="tooltip"
+                                       title="Enter your location with zip"
+                                        >
+
+
+                            </div>
+
+                            <!--<label for="">Location</label>-->
+
+
+                            <!--<span>{{user.country}}</span>-->
+
+                        </div>
+
+                        <!--Zip/PostalCode-->
+                        <!--<div class="form-group">-->
+                        <!--<label for="exampleInputEmail5">Zip/PostalCode</label>-->
+                        <!--<input type="text" class="form-control" id="exampleInputEmail5" placeholder="Enter your Zip/PostalCode" ng-model="user.zip">-->
+                        <!--</div>-->
+
+                        <!--Birthday
+                        <div class="form-group">
+                            <label for="exampleInputEmail8">Birthday</label>
+                            <input type="date" class="form-control" id="exampleInputEmail8" placeholder="" ng-model="user.birthdate">
+                        </div>-->
+
+
+                        <!--Gender-->
+                        <!--Validate on form submission -->
+                        <div class="form-group">
+
+                            <label for="exampleInputEmail8">Gender</label>
+                            <input type="radio" name="sexMale" value="Male"  ng-model="user.gender" required>Male
+                            <input type="radio" name="sexFemale" value="Female"  ng-model="user.gender">Female
+                            <!--<span>{{user.gender}}</span>-->
+                        </div>
+
+
+
+                        <!--I am a -->
+                        <div class="form-group ">
+                            <label for="exampleInputEmail8">I am a </label>
+                            <input type="radio" name="fighter" value="Fighter"  ng-model="user.iama" required>Fighter
+                            <input type="radio" name="supporter" value="Supporter"  ng-model="user.iama" >Supporter
+                        </div>
+
+                        <!--Year Diagnosed depends on the selection of I am a-->
+                        <div class="form-group" ng-show=" user.iama == 'Fighter' ">
+                            <label for="exampleInputPassword2">Year Diagnosed</label>
+                            <span ng-show="">Enter year between 1900 & 2100</span>
+                            <input type="number"
+                                   class="form-control"
+                                   ng-model="user.yeardiagnosed"
+                                   placeholder="1900-2100"
+                                   name="yeardiagnosed"
+                                   min="1900"
+                                   max="2100"
+
+                                    >
+
+
+                        </div>
+
+
+                        <pre ng-show="invalid === true">Invalid Registration</pre>
+
+                        <!--Submit button-->
+                        <div class="form-group">
+                            <button type="button"
+                                    class="btn btn-primary form-control"
+                                    id="buttonSignUp"
+                                    ng-click="verifyForm()"
+                                    ng-disabled="firstHalf.$invalid"
+                                    >SignUp</button>
+                        </div>
+
+
+                        <!--Mesages on Submit-->
+                        <pre ng-show="response.formAccepted === 'true'">SignUp Successful</pre>
+                        <pre ng-show="response.formAccepted === 'false'">SignUp Failed</pre>
+                        <!--<h6>{{response}}</h6>
+                        <h2>{{firstHalf.$invalid}}</h2>-->
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<footer>
+    <div class="container" id="footer">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 footer-setting center">
+
+                <p class="footer-copyright white">© 2015 SugarMommas</p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9GLrorUY8X7RNG4rGH6_q5LbdNifsWUw&libraries=places"
+        async defer></script>
+<!--angular -->
+
+
+<!--<script src="https://code.jquery.com/jquery-2.1.4.js"></script>-->
+
+<script>
+
+    $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip({
+            placement : 'top',
+            trigger: 'focus'
+        });
+    });
+
+</script>
+<script type="text/javascript" src="../javascripts/registerController.js"></script>
+
+
+</body>
+</html>

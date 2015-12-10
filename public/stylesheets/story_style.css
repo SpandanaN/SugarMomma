@@ -1,0 +1,67 @@
+.navbar-inverse.navbar{
+    opacity: 0.7;
+
+}
+
+.navbar{
+
+    background: transparent;
+    opacity: 0.7;
+}
+.navbar-brand{
+    width:100px;
+    height:100px;
+}
+.white{
+    color:white;
+}
+#logo{
+    margin-top: -25px;
+    background-color: red;
+    border-radius:100px;
+    border:1px solid gold;
+}
+#stories-container{
+    background-image: url("../images/old_map.png");
+    padding-top: 150px;
+    width:100%;
+}
+img{
+    border-radius: 100px;
+}
+h3{
+    font-family: 'Henny Penny', sans-serif;
+    text-align: justify;
+}
+h5{
+    font-family: 'Josefin', sans-serif;
+    text-align: justify;
+}
+.panel{
+    padding-right:20px ;
+    background-color: #00d6b2;
+}
+.text{
+    font-family: 'Josefin', sans-serif;
+}
+.center{
+    text-align: center;
+}
+.navbar-center{
+    font-family: 'Raleway', sans-serif;
+    font-weight: 100;
+}
+#footer{
+
+    background-color: black;
+    width:100%;
+    padding-top: 20px;
+    opacity: 0.5;
+}
+.footer-options{
+    margin-left: 5em;
+}
+
+.footer-copyright{
+
+}

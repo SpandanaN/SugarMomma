@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html ng-app="adminProfile">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SugarMomma</title>
+    <link rel='stylesheet' href='../stylesheets/admin_profile_style.css' />
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../javascripts/adminController.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'>
+</head>
+
+<body ng-controller="adminController as userpost">
+
+
+<header class="nav-down">
+    <div class="navbar transparent navbar-static-top">
+
+        <div class="container">
+
+            <div class="navbar-header">
+                <a href="/" class="navbar-brand" id="title">Sugar Mommas</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active navbar-right menu-list"><a href="/" class="blue">LOG OUT</a></li>
+                </ul>
+
+                <p class="navbar-text navbar-right">Welcome Admin!</p>
+            </div>
+
+
+        </div>
+    </div>
+</header>
+
+        <div class="container" id="posts-container">
+            <div class="row">
+                <div class="col-md-3"></div>
+
+                <div class="col-md-6">
+                    <div class="posts-panel" ng-repeat="post in posts">
+
+                        <div class="panel panel-info other-post">
+                            <div class="panel-body">
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object " src="../images/profilePic/{{post.dp_src}}" width="50px" height="50px">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <a href="#profile-modal" data-toggle="modal" data-target="#profile-modal" ng-click="getUserProfile(post._id)"><h4 class="media-heading text">{{post.author}}</h4></a>
+
+
+
+                                        <div id="profile-modal" class="modal fade" role="dialog">
+                                            <div class="modal-dialog">
+
+
+                                                <div class="modal-content">
+
+                                                    <div class="modal-body">
+                                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                        <div class="media">
+                                                            <div class="media-left">
+                                                                <a href="#">
+                                                                    <img class="media-object " src="../images/profilePic/{{post.dp_src}}" width="200px" height="200px">
+                                                                </a>
+                                                            </div>
+                                                            <div class="media-body">
+                                                                <h3 class="text">{{userProfile.name}}</h3>
+                                                                <h5 class="text">Status: {{userProfile.iama}}</h5>
+
+                                                                <h5 class="text">Lives In: {{userProfile.location}}</h5>
+                                                                <h5 class="text">Email:{{userProfile.email}}</h5>
+
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+                                </div>
+                                <p id="post-message" class="text">{{post.message}}</p>
+                                <hr />
+                                <div class="buttons-div">
+
+
+                                    <a href="" class="right" ng-click="removePost(post._id)">Remove post</a>
+                                </div>
+                            </div>
+                            <div class="panel-footer panel-info" >
+
+                                <div class="" id="other-comments" ng-repeat="comment in post.comments_details" >
+                                    <div class="media other-comments" id="">
+                                        <div class="media-left">
+                                            <a href="#">
+                                                <img class="media-object " src={{comment.comment_author_dp}} width="35px" height="35px">
+                                            </a>
+                                        </div>
+                                        <div class="media-body">
+                                            <p id="comment" class="text">{{comment.comment_message}}</p>
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+
+                                <div class="media">
+                                    <div class="media-left">
+                                        <a href="#">
+                                            <img class="media-object " src="../images/profilePic/{{post.dp_src}}" width="35px" height="35px">
+                                        </a>
+                                    </div>
+                                    <div class="media-body">
+                                        <div class="input-group">
+                                            <input type="text" placeholder="Write your comment" class="form-control" id="my-comment" ng-model="comment.comment_message" aria-describedby="basic-addon1" />
+
+                                            <span class="input-group-addon glyphicon glyphicon-send" id="basic-addon1" ng-click="submitComment(post._id,comment)"></span>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <hr class="divider" />
+
+
+
+
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+            </div>
+                <div class="col-md-3" id="controls-column">
+                    <div class="panel panel-danger">
+                        <div class="panel-heading">
+                            Remove User
+                        </div>
+                        <div class="panel-body">
+                            <input class="form-control" placeholder="Enter user email" id="remove_user_email" type="email" ng-model="userEmail"/>
+                            <button class="btn btn-danger" id="remove_user_button" ng-click="removeUser()">Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            </div>
+
+<footer>
+    <div class="container" id="footer">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 footer-setting center">
+
+                <p class="footer-copyright white">© 2015 SugarMommas</p>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="../javascripts/adminController.js"></script>
+</body>
+</html>
