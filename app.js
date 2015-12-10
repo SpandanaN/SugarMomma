@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongojs=require('mongojs');
 //var db=mongojs('sugarmomma',['posts','users','postMsg']);
-var db=mongojs('mongodb://sugarMommaDB:sugarMomma@ds035703.mongolab.com:35703/heroku_5635htnb');
+var db=mongojs('mongodb://sugarMommaDB:sugarMomma@ds027385.mongolab.com:27385/heroku_5635htnb');
 
 
 var routes = require('./routes/index');
